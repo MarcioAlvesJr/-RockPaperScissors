@@ -1,0 +1,122 @@
+* {
+  padding: 0;
+  margin: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.select-to-play {
+  height: 100vh;
+  width: 100vw;
+  background-color: #2a9d8f;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  overflow: hidden;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.select-to-play .hand-wheel {
+  display: block;
+  -webkit-transform: rotate(0deg);
+          transform: rotate(0deg);
+  -webkit-transition: rotate 0.4s ease-in-out;
+  transition: rotate 0.4s ease-in-out;
+}
+
+.select-to-play .hand-wheel #svgs {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  overflow: hidden;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.select-to-play .hand-wheel #svgs .back-shape {
+  opacity: 0.2;
+  position: absolute;
+  list-style-type: none;
+}
+
+.select-to-play .hand-wheel #svgs .back-shape path {
+  fill: #264653;
+}
+
+.select-to-play .hand-wheel #svgs .hand {
+  opacity: 0.3;
+  position: absolute;
+}
+
+.select-to-play .hand-wheel #svgs .active.back-shape,
+.select-to-play .hand-wheel #svgs .active.hand {
+  opacity: 1;
+}
+
+.select-to-play .hand-wheel #svgs .active.back-shape path {
+  fill: #8ab17d;
+}
+
+.select-to-play .hand-wheel.paper {
+  -webkit-transform: rotate(-120deg);
+          transform: rotate(-120deg);
+}
+
+.select-to-play .hand-wheel.rock {
+  -webkit-transform: rotate(120deg);
+          transform: rotate(120deg);
+}
+
+.select-to-play nav {
+  display: block;
+  position: relative;
+  top: 19vh;
+  color: white;
+  font-size: 10vh;
+}
+
+.select-to-play nav ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.select-to-play nav ul li {
+  display: block;
+  background-color: #8ab17d;
+  margin: 5vh;
+  padding: 0vh 7vh;
+  list-style-type: none;
+  border-radius: 99999px;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  cursor: pointer;
+  -webkit-transition: 0.3s ease-in-out;
+  transition: 0.3s ease-in-out;
+}
+
+.select-to-play nav ul li:hover {
+  -webkit-filter: brightness(1.1);
+          filter: brightness(1.1);
+}
+
+.select-to-play nav ul li:active {
+  -webkit-transform: scale(0.95);
+          transform: scale(0.95);
+}
+/*# sourceMappingURL=style.css.map */
