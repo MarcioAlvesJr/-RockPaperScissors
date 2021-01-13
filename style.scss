@@ -23,7 +23,7 @@ $color-computer-3: #e76f51;
   .hand-wheel {
     display: block;
     transform: rotate(0deg);
-    transition: rotate 0.4s ease-in-out;
+    transition: 0.7s cubic-bezier(1, -0.26, 0, 1.66);
 
     #svgs {
       display: flex;
@@ -42,6 +42,7 @@ $color-computer-3: #e76f51;
       .hand {
         opacity: 0.3;
         position: absolute;
+        transition: 0.25s ease-in;
       }
       .active.back-shape,
       .active.hand {
@@ -54,12 +55,6 @@ $color-computer-3: #e76f51;
         }
       }
     }
-  }
-  .hand-wheel.paper {
-    transform: rotate(-120deg);
-  }
-  .hand-wheel.rock {
-    transform: rotate(120deg);
   }
 
   nav {
