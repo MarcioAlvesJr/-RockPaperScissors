@@ -85,6 +85,19 @@ $color-computer-3: #e76f51;
       li:active {
         transform: scale(0.95);
       }
+      span {
+        display: block;
+      }
+      li:nth-child(1) {
+        span {
+          transform: rotate(-70deg);
+        }
+      }
+      li:nth-child(3) {
+        span {
+          transform: rotate(70deg);
+        }
+      }
     }
   }
 }

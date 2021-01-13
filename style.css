@@ -111,4 +111,18 @@
   -webkit-transform: scale(0.95);
           transform: scale(0.95);
 }
+
+.select-to-play nav ul span {
+  display: block;
+}
+
+.select-to-play nav ul li:nth-child(1) span {
+  -webkit-transform: rotate(-70deg);
+          transform: rotate(-70deg);
+}
+
+.select-to-play nav ul li:nth-child(3) span {
+  -webkit-transform: rotate(70deg);
+          transform: rotate(70deg);
+}
 /*# sourceMappingURL=style.css.map */
