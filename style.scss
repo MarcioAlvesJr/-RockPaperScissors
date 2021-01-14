@@ -24,6 +24,7 @@ body {
   position: absolute;
 
   top: -100vh;
+  left: -50;
 
   background-image: linear-gradient($color-computer-2 50%, $color-player-2 50%);
 
@@ -66,7 +67,7 @@ body {
         position: absolute;
         list-style-type: none;
         transition: 0.4s ease;
-        transti path {
+        path {
           fill: $color-player-1;
         }
       }

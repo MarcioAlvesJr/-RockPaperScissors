@@ -3,7 +3,7 @@
 // 2 = Rock
 
 let
-    selectedHand = 0,
+    selectedHand = Math.floor(Math.random() * 3),
     wheelRotation = 0;
 
 //SELECTION MENU UI ELEMENTS
@@ -15,8 +15,8 @@ const
     menu_playBtn = document.querySelector('.play-btn').addEventListener('click', startGame)
 
 // Menu Selection
-    function selectHand(idx){
-        if(idx != selectedHand){
+    function selectHand(idx, first){
+        if(idx != selectedHand || first == true){
             rotateWheel();
             menu_shapes.forEach(shape=>{
                 shape.parentElement.classList.remove('active')
@@ -64,26 +64,55 @@ const
         })
 // VS area
 function startGame(){
-
-    //DETECT WINNER
-    console.log(`The winner is: ${theWinneIs()}`)
+    const
+        comp = numToHand(Math.floor(Math.random() * 3)),
+        player = numToHand(selectedHand)
     //HIDE MENU ELEMENTS
     document.querySelector(".select-to-play").classList.toggle("hidden")
 
     //SHOW NEXT SCREEN ELEMENTS
     document.querySelector('.background').classList.toggle('vs-screen')
     document.querySelector('.vs-screen-game').classList.toggle('active')
+
+    //SHOW SELECTED HANDS
+    document.querySelectorAll(".hand.enemy .wrapper *")[2].style.opacity =  0
+    document.querySelectorAll(".hand.player .wrapper *")[2].style.opacity =  0
+
+    document.querySelectorAll(".hand.enemy .wrapper *").forEach(hand =>
+        {if(hand.classList.contains(comp)){
+            hand.style.opacity =  1}})
+    document.querySelectorAll(".hand.player .wrapper *").forEach(hand =>
+        {if(hand.classList.contains(player)){
+            hand.style.opacity =  1}})
+    //SHOW WINNING/LOSING/ANIMATION
+    console.log(`
+    Computer: ${comp}
+    Player: ${player}
+    `)
+
+    const
+        vs_screen_hands = document.querySelectorAll(".vs-screen-game .hand"),
+        background = document.querySelector('.background.vs-screen ')
+
+
+    if(theWinneIs(player,comp) == "even"){
+        console.log("The game is even ")
+        background.style.filter=" blur(4px)"
+        vs_screen_hands.forEach(hand => {
+            hand.style.filter=" blur(4px)"
+        })
+
+    }else if(theWinneIs(player,comp) == "player"){
+        console.log("You won!")
+        vs_screen_hands[0].style.filter=" blur(4px)"
+    }else{
+        console.log("You lost!")  
+        vs_screen_hands[1].style.filter=" blur(4px)"
+    }
+    
 }
 
-function theWinneIs(){
-    const
-        comp = numToHand(Math.floor(Math.random() * 3)),
-        player = numToHand(selectedHand)
-
-    console.log(`Player: ${player}
-Computer: ${comp}`)
-
-
+function theWinneIs(player,comp){
     if(player == comp){
         return "even"
     }else 
@@ -132,3 +161,17 @@ function numToHand(num){
             return "rock"
     }
 }
+
+//SELECT RANDOM HAND ON LOAD
+
+if(selectedHand == 1){
+    wheelRotation = wheelRotation -120
+}else if(selectedHand == 2){
+    wheelRotation = wheelRotation +120
+}else{
+    wheelRotation = wheelRotation +360
+}
+rotateWheel()
+selectHand(selectedHand,true)
+
+

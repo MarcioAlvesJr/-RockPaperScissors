@@ -15,6 +15,7 @@ body {
   width: 200vw;
   position: absolute;
   top: -100vh;
+  left: -50;
   background-image: -webkit-gradient(linear, left top, left bottom, color-stop(50%, #f4a261), color-stop(50%, #2a9d8f));
   background-image: linear-gradient(#f4a261 50%, #2a9d8f 50%);
   -webkit-transition: top 0.5s ease 1s;
@@ -84,7 +85,7 @@ body {
   transition: 0.4s ease;
 }
 
-.select-to-play .hand-wheel #svgs .back-shape transti path {
+.select-to-play .hand-wheel #svgs .back-shape path {
   fill: #264653;
 }
 
