@@ -10,13 +10,21 @@ $color-computer-3: #e76f51;
   margin: 0;
   box-sizing: border-box;
 }
+body {
+  overflow: hidden;
+}
+
 .background {
-  height: 100vh;
-  width: 100vw;
+  height: 200vh;
+  width: 200vw;
+  position: absolute;
+  overflow: hidden;
   background-image: linear-gradient($color-player-2 50%, $color-computer-2 50%);
+  transform: translate(0, 0);
+  transition: 3s ease;
 }
 .background.computer-select {
-  background-position-y: 200px;
+  transform: translate(0, -50vh);
 }
 
 .select-to-play {
