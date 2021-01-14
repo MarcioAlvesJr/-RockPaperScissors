@@ -5,6 +5,8 @@ $color-computer-1: #e9c46a;
 $color-computer-2: #f4a261;
 $color-computer-3: #e76f51;
 
+$change-screen: 0.5s ease 1s;
+
 * {
   padding: 0;
   margin: 0;
@@ -25,7 +27,7 @@ body {
 
   background-image: linear-gradient($color-computer-2 50%, $color-player-2 50%);
 
-  transition: 3s ease;
+  transition: top $change-screen;
   z-index: -10;
 }
 .background.vs-screen {
@@ -172,38 +174,60 @@ body {
 .vs-screen-game {
   opacity: 0;
 
-  height: 100vh;
+  height: 0vh;
   width: 100vw;
 
-  display: none;
+  display: grid;
+
+  .wrapper {
+    height: 30vh;
+    width: 30vh;
+    border-radius: 999999px;
+    transform: translateY(50vh);
+    transition: $change-screen;
+  }
 
   .hand {
-    display: flex;
     position: relative;
+    display: flex;
 
     justify-content: center;
     align-items: center;
+
     img {
-      border-radius: 999999px;
       position: absolute;
       height: 30vh;
       width: 30vh;
     }
   }
 
-  .hand.enemy {
-    img {
-      background-color: $color-computer-1;
-      transform: rotate(180deg);
-    }
+  .wrapper {
+    transform: translateY(50vh);
   }
-  .hand.player {
-    img {
-      background-color: $color-player-3;
-    }
+
+  .hand.enemy {
+    transform: rotate(180deg);
+  }
+
+  .scissors,
+  .paper {
+    opacity: 0;
   }
 }
 .active.vs-screen-game {
-  display: grid;
+  height: 100vh;
   opacity: 1;
+
+  .hand.enemy {
+    .wrapper {
+      background-color: $color-computer-1;
+      transform: translateY(0);
+    }
+  }
+  .hand.player {
+    .wrapper {
+      background-color: $color-player-3;
+      transform: translateY(0);
+    }
+  }
 }

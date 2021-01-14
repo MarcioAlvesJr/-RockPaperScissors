@@ -17,8 +17,8 @@ body {
   top: -100vh;
   background-image: -webkit-gradient(linear, left top, left bottom, color-stop(50%, #f4a261), color-stop(50%, #2a9d8f));
   background-image: linear-gradient(#f4a261 50%, #2a9d8f 50%);
-  -webkit-transition: 3s ease;
-  transition: 3s ease;
+  -webkit-transition: top 0.5s ease 1s;
+  transition: top 0.5s ease 1s;
   z-index: -10;
 }
 
@@ -219,16 +219,27 @@ body {
 
 .vs-screen-game {
   opacity: 0;
-  height: 100vh;
+  height: 0vh;
   width: 100vw;
-  display: none;
+  display: -ms-grid;
+  display: grid;
+}
+
+.vs-screen-game .wrapper {
+  height: 30vh;
+  width: 30vh;
+  border-radius: 999999px;
+  -webkit-transform: translateY(50vh);
+          transform: translateY(50vh);
+  -webkit-transition: 0.5s ease 1s;
+  transition: 0.5s ease 1s;
 }
 
 .vs-screen-game .hand {
+  position: relative;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  position: relative;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
@@ -238,25 +249,40 @@ body {
 }
 
 .vs-screen-game .hand img {
-  border-radius: 999999px;
   position: absolute;
   height: 30vh;
   width: 30vh;
 }
 
-.vs-screen-game .hand.enemy img {
-  background-color: #e9c46a;
+.vs-screen-game .wrapper {
+  -webkit-transform: translateY(50vh);
+          transform: translateY(50vh);
+}
+
+.vs-screen-game .hand.enemy {
   -webkit-transform: rotate(180deg);
           transform: rotate(180deg);
 }
 
-.vs-screen-game .hand.player img {
-  background-color: #8ab17d;
+.vs-screen-game .scissors,
+.vs-screen-game .paper {
+  opacity: 0;
 }
 
 .active.vs-screen-game {
-  display: -ms-grid;
-  display: grid;
+  height: 100vh;
   opacity: 1;
+}
+
+.active.vs-screen-game .hand.enemy .wrapper {
+  background-color: #e9c46a;
+  -webkit-transform: translateY(0);
+          transform: translateY(0);
+}
+
+.active.vs-screen-game .hand.player .wrapper {
+  background-color: #8ab17d;
+  -webkit-transform: translateY(0);
+          transform: translateY(0);
 }
 /*# sourceMappingURL=style.css.map */
