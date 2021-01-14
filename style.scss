@@ -10,19 +10,22 @@ $color-computer-3: #e76f51;
   margin: 0;
   box-sizing: border-box;
 }
+body {
+  background-color: $color-player-2;
+}
 
 .select-to-play {
+  background-color: rgba(0, 0, 0, 0);
   height: 100vh;
   max-width: 100vhvw;
   margin: auto;
 
-  background-color: $color-player-2;
   display: flex;
   flex-direction: column;
   overflow: hidden;
   align-items: center;
   justify-content: center;
-  transform: translate(-5vh, 0vh);
+  transform: translate(-5vw, 0vh);
   .hand-wheel {
     display: block;
     transform: rotate(0deg);

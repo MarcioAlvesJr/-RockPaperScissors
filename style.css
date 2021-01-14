@@ -5,11 +5,15 @@
           box-sizing: border-box;
 }
 
+body {
+  background-color: #2a9d8f;
+}
+
 .select-to-play {
+  background-color: rgba(0, 0, 0, 0);
   height: 100vh;
   max-width: 100vhvw;
   margin: auto;
-  background-color: #2a9d8f;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -24,8 +28,8 @@
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  -webkit-transform: translate(-5vh, 0vh);
-          transform: translate(-5vh, 0vh);
+  -webkit-transform: translate(-5vw, 0vh);
+          transform: translate(-5vw, 0vh);
 }
 
 .select-to-play .hand-wheel {
