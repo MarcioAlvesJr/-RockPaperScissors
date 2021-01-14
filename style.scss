@@ -13,17 +13,25 @@ $color-computer-3: #e76f51;
 
 .select-to-play {
   height: 100vh;
-  width: 100vw;
+  max-width: 100vhvw;
+  margin: auto;
+
   background-color: $color-player-2;
   display: flex;
   flex-direction: column;
   overflow: hidden;
   align-items: center;
   justify-content: center;
+  transform: translate(-5vh, 0vh);
   .hand-wheel {
     display: block;
     transform: rotate(0deg);
     transition: 0.7s cubic-bezier(1, -0.26, 0, 1.66);
+
+    svg {
+      height: 50vh;
+      width: 50vh;
+    }
 
     #svgs {
       display: flex;
@@ -66,6 +74,17 @@ $color-computer-3: #e76f51;
     }
     .active.back-shape:nth-child(3) {
       transform: translate(-1.6vh, 1vh);
+    }
+    .hand {
+      display: block;
+      filter: blur(4px);
+      transform: scale(0.75);
+      transition: 0.3s ease;
+    }
+    .active.hand {
+      filter: blur(0px);
+      transform: scale(1);
+      filter: drop-shadow(0 -6mm 15px rgba(3, 59, 31, 0.171));
     }
   }
 

@@ -7,7 +7,8 @@
 
 .select-to-play {
   height: 100vh;
-  width: 100vw;
+  max-width: 100vhvw;
+  margin: auto;
   background-color: #2a9d8f;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -23,6 +24,8 @@
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  -webkit-transform: translate(-5vh, 0vh);
+          transform: translate(-5vh, 0vh);
 }
 
 .select-to-play .hand-wheel {
@@ -31,6 +34,11 @@
           transform: rotate(0deg);
   -webkit-transition: 0.7s cubic-bezier(1, -0.26, 0, 1.66);
   transition: 0.7s cubic-bezier(1, -0.26, 0, 1.66);
+}
+
+.select-to-play .hand-wheel svg {
+  height: 50vh;
+  width: 50vh;
 }
 
 .select-to-play .hand-wheel #svgs {
@@ -90,6 +98,25 @@
 .select-to-play .hand-wheel .active.back-shape:nth-child(3) {
   -webkit-transform: translate(-1.6vh, 1vh);
           transform: translate(-1.6vh, 1vh);
+}
+
+.select-to-play .hand-wheel .hand {
+  display: block;
+  -webkit-filter: blur(4px);
+          filter: blur(4px);
+  -webkit-transform: scale(0.75);
+          transform: scale(0.75);
+  -webkit-transition: 0.3s ease;
+  transition: 0.3s ease;
+}
+
+.select-to-play .hand-wheel .active.hand {
+  -webkit-filter: blur(0px);
+          filter: blur(0px);
+  -webkit-transform: scale(1);
+          transform: scale(1);
+  -webkit-filter: drop-shadow(0 -6mm 15px rgba(3, 59, 31, 0.171));
+          filter: drop-shadow(0 -6mm 15px rgba(3, 59, 31, 0.171));
 }
 
 .select-to-play nav {
