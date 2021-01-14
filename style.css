@@ -83,13 +83,13 @@
 }
 
 .select-to-play .hand-wheel .active.back-shape:nth-child(2) {
-  -webkit-transform: translate(2vh, 1vh);
-          transform: translate(2vh, 1vh);
+  -webkit-transform: translate(1.6vh, 1vh);
+          transform: translate(1.6vh, 1vh);
 }
 
 .select-to-play .hand-wheel .active.back-shape:nth-child(3) {
-  -webkit-transform: translate(-2vh, 1vh);
-          transform: translate(-2vh, 1vh);
+  -webkit-transform: translate(-1.6vh, 1vh);
+          transform: translate(-1.6vh, 1vh);
 }
 
 .select-to-play nav {
