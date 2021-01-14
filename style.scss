@@ -10,24 +10,32 @@ $color-computer-3: #e76f51;
   margin: 0;
   box-sizing: border-box;
 }
+
 body {
   overflow: hidden;
 }
 
 .background {
+  display: block;
   height: 200vh;
   width: 200vw;
   position: absolute;
-  overflow: hidden;
-  background-image: linear-gradient($color-player-2 50%, $color-computer-2 50%);
-  transform: translate(0, 0);
+
+  top: -100vh;
+
+  background-image: linear-gradient($color-computer-2 50%, $color-player-2 50%);
+
   transition: 3s ease;
+  z-index: -10;
 }
-.background.computer-select {
-  transform: translate(0, -50vh);
+.background.vs-screen {
+  top: -50vh;
 }
 
 .select-to-play {
+  transform: translate(0, 0);
+  transition: 1s cubic-bezier(0.55, -0.6, 0.96, 0.82);
+  position: absolute;
   height: 100vh;
   width: 100vw;
 
@@ -56,8 +64,7 @@ body {
         position: absolute;
         list-style-type: none;
         transition: 0.4s ease;
-
-        path {
+        transti path {
           fill: $color-player-1;
         }
       }
@@ -65,7 +72,7 @@ body {
         display: block;
         opacity: 0.3;
         position: absolute;
-        transition: transform 0.25s ease-in;
+        transition: transform 0.25s cubic-bezier(0.29, -0.54, 0.62, 2.04);
       }
 
       .active.back-shape,
@@ -144,4 +151,59 @@ body {
       }
     }
   }
+}
+
+.select-to-play.hidden {
+  transform: translate(0, +100vh);
+  .active.back-shape,
+  .active.hand {
+    transform: scale(1);
+  }
+  .back-shape,
+  .hand {
+    transform: scale(0);
+  }
+
+  nav ul li {
+    transform: scale(0);
+  }
+}
+
+.vs-screen-game {
+  opacity: 0;
+
+  height: 100vh;
+  width: 100vw;
+
+  display: none;
+
+  .hand {
+    display: flex;
+    position: relative;
+
+    justify-content: center;
+    align-items: center;
+    img {
+      border-radius: 999999px;
+      position: absolute;
+      height: 30vh;
+      width: 30vh;
+    }
+  }
+
+  .hand.enemy {
+    img {
+      background-color: $color-computer-1;
+      transform: rotate(180deg);
+    }
+  }
+  .hand.player {
+    img {
+      background-color: $color-player-3;
+    }
+  }
+}
+.active.vs-screen-game {
+  display: grid;
+  opacity: 1;
 }

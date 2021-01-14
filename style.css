@@ -10,24 +10,28 @@ body {
 }
 
 .background {
+  display: block;
   height: 200vh;
   width: 200vw;
   position: absolute;
-  overflow: hidden;
-  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(50%, #2a9d8f), color-stop(50%, #f4a261));
-  background-image: linear-gradient(#2a9d8f 50%, #f4a261 50%);
-  -webkit-transform: translate(0, 0);
-          transform: translate(0, 0);
+  top: -100vh;
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(50%, #f4a261), color-stop(50%, #2a9d8f));
+  background-image: linear-gradient(#f4a261 50%, #2a9d8f 50%);
   -webkit-transition: 3s ease;
   transition: 3s ease;
+  z-index: -10;
 }
 
-.background.computer-select {
-  -webkit-transform: translate(0, -50vh);
-          transform: translate(0, -50vh);
+.background.vs-screen {
+  top: -50vh;
 }
 
 .select-to-play {
+  -webkit-transform: translate(0, 0);
+          transform: translate(0, 0);
+  -webkit-transition: 1s cubic-bezier(0.55, -0.6, 0.96, 0.82);
+  transition: 1s cubic-bezier(0.55, -0.6, 0.96, 0.82);
+  position: absolute;
   height: 100vh;
   width: 100vw;
   display: -webkit-box;
@@ -80,7 +84,7 @@ body {
   transition: 0.4s ease;
 }
 
-.select-to-play .hand-wheel #svgs .back-shape path {
+.select-to-play .hand-wheel #svgs .back-shape transti path {
   fill: #264653;
 }
 
@@ -88,10 +92,10 @@ body {
   display: block;
   opacity: 0.3;
   position: absolute;
-  -webkit-transition: -webkit-transform 0.25s ease-in;
-  transition: -webkit-transform 0.25s ease-in;
-  transition: transform 0.25s ease-in;
-  transition: transform 0.25s ease-in, -webkit-transform 0.25s ease-in;
+  -webkit-transition: -webkit-transform 0.25s cubic-bezier(0.29, -0.54, 0.62, 2.04);
+  transition: -webkit-transform 0.25s cubic-bezier(0.29, -0.54, 0.62, 2.04);
+  transition: transform 0.25s cubic-bezier(0.29, -0.54, 0.62, 2.04);
+  transition: transform 0.25s cubic-bezier(0.29, -0.54, 0.62, 2.04), -webkit-transform 0.25s cubic-bezier(0.29, -0.54, 0.62, 2.04);
 }
 
 .select-to-play .hand-wheel #svgs .active.back-shape,
@@ -189,5 +193,70 @@ body {
 .select-to-play nav ul li:nth-child(3) span {
   -webkit-transform: rotate(70deg);
           transform: rotate(70deg);
+}
+
+.select-to-play.hidden {
+  -webkit-transform: translate(0, 100vh);
+          transform: translate(0, 100vh);
+}
+
+.select-to-play.hidden .active.back-shape,
+.select-to-play.hidden .active.hand {
+  -webkit-transform: scale(1);
+          transform: scale(1);
+}
+
+.select-to-play.hidden .back-shape,
+.select-to-play.hidden .hand {
+  -webkit-transform: scale(0);
+          transform: scale(0);
+}
+
+.select-to-play.hidden nav ul li {
+  -webkit-transform: scale(0);
+          transform: scale(0);
+}
+
+.vs-screen-game {
+  opacity: 0;
+  height: 100vh;
+  width: 100vw;
+  display: none;
+}
+
+.vs-screen-game .hand {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: relative;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.vs-screen-game .hand img {
+  border-radius: 999999px;
+  position: absolute;
+  height: 30vh;
+  width: 30vh;
+}
+
+.vs-screen-game .hand.enemy img {
+  background-color: #e9c46a;
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
+}
+
+.vs-screen-game .hand.player img {
+  background-color: #8ab17d;
+}
+
+.active.vs-screen-game {
+  display: -ms-grid;
+  display: grid;
+  opacity: 1;
 }
 /*# sourceMappingURL=style.css.map */
