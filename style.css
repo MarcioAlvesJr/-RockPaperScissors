@@ -50,6 +50,8 @@
   opacity: 0.2;
   position: absolute;
   list-style-type: none;
+  -webkit-transition: 0.4s ease;
+  transition: 0.4s ease;
 }
 
 .select-to-play .hand-wheel #svgs .back-shape path {
@@ -57,10 +59,13 @@
 }
 
 .select-to-play .hand-wheel #svgs .hand {
+  display: block;
   opacity: 0.3;
   position: absolute;
-  -webkit-transition: 0.25s ease-in;
-  transition: 0.25s ease-in;
+  -webkit-transition: -webkit-transform 0.25s ease-in;
+  transition: -webkit-transform 0.25s ease-in;
+  transition: transform 0.25s ease-in;
+  transition: transform 0.25s ease-in, -webkit-transform 0.25s ease-in;
 }
 
 .select-to-play .hand-wheel #svgs .active.back-shape,
@@ -70,6 +75,21 @@
 
 .select-to-play .hand-wheel #svgs .active.back-shape path {
   fill: #8ab17d;
+}
+
+.select-to-play .hand-wheel .active.back-shape:nth-child(1) {
+  -webkit-transform: translate(0, -2vh);
+          transform: translate(0, -2vh);
+}
+
+.select-to-play .hand-wheel .active.back-shape:nth-child(2) {
+  -webkit-transform: translate(2vh, 1vh);
+          transform: translate(2vh, 1vh);
+}
+
+.select-to-play .hand-wheel .active.back-shape:nth-child(3) {
+  -webkit-transform: translate(-2vh, 1vh);
+          transform: translate(-2vh, 1vh);
 }
 
 .select-to-play nav {
