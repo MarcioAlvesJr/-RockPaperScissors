@@ -288,7 +288,7 @@ body {
 }
 
 .active.vs-screen-game .hand.enemy .wrapper {
-  background-color: #e9c46a;
+  background-color: #e9cb6a;
   -webkit-transform: translateY(0);
           transform: translateY(0);
 }

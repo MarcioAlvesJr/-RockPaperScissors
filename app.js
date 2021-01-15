@@ -83,7 +83,44 @@ function startGame(){
         
         hitHit()
         setTimeout(hitHit, 1000)
-        setTimeout(hitHit, 2000)
+        setTimeout(()=>{
+            if(theWinneIs(player,comp) == "even"){
+                //console.log("The game is even ")
+                setTimeout(()=>{document.querySelectorAll(".hand .wrapper *").forEach(hand =>{
+                    hand.classList.toggle('hit')
+                })
+                }, 500)
+                setTimeout(()=>{document.querySelectorAll(".hand .wrapper *").forEach(hand =>{
+                    hand.classList.toggle('hit')
+                })
+                }, 850)
+        
+            }else if(theWinneIs(player,comp) == "player"){
+                //console.log("You won!")
+                setTimeout(()=>{document.querySelectorAll(".hand.player .wrapper *").forEach(hand =>{
+                    hand.classList.toggle('hit')
+                })
+                }, 500)
+                setTimeout(()=>{document.querySelectorAll(".hand.player .wrapper *").forEach(hand =>{
+                    hand.classList.toggle('hit')
+                })
+                }, 850)
+
+            }else{
+                //console.log("You lost!")
+                setTimeout(()=>{document.querySelectorAll(".hand.enemy .wrapper *").forEach(hand =>{
+                    hand.classList.toggle('hit')
+                })
+                }, 500)
+                setTimeout(()=>{document.querySelectorAll(".hand.enemy .wrapper *").forEach(hand =>{
+                    hand.classList.toggle('hit')
+                })
+                }, 850)
+            }
+            
+        }
+        
+            , 2000)
       
         setTimeout(()=>{
             //SHOW SELECTED HANDS
@@ -97,17 +134,17 @@ function startGame(){
                 {if(hand.classList.contains(player)){
                     hand.style.opacity =  1}})
                 }, 
-        2200);
+        2000);
         setTimeout(()=>{
 
 
         //SHOW WINNING/LOSING/ANIMATION
     
     
-        console.log(`
-        Computer: ${comp}
-        Player: ${player}
-        `)
+        // console.log(`
+        // Computer: ${comp}
+        // Player: ${player}
+        // `)
     
         const
             vs_screen_hands = document.querySelectorAll(".vs-screen-game .hand"),
@@ -115,7 +152,6 @@ function startGame(){
     
     
         if(theWinneIs(player,comp) == "even"){
-            console.log("The game is even ")
             background.style.filter="brightness(0.8)  blur(4px)"
             vs_screen_hands.forEach(hand => {
                 hand.style.filter="blur(4px)"
@@ -123,20 +159,18 @@ function startGame(){
             })
     
         }else if(theWinneIs(player,comp) == "player"){
-            console.log("You won!")
             background.style.filter="brightness(0.8)"
             background.style.top = "-100vh"
             vs_screen_hands[0].style.filter=" blur(4px)"
             vs_screen_hands[0].style.opacity="0.6"
         }else{
-            console.log("You lost!")
             background.style.top = "0vh"
             background.style.filter="brightness(0.8)"  
             vs_screen_hands[1].style.filter=" blur(4px)"
             vs_screen_hands[1].style.opacity="0.6"
         }
         
-        }, 3450);
+        }, 2950);
     
         
     }, 1000)
