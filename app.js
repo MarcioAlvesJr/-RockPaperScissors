@@ -77,44 +77,69 @@ function startGame(){
     document.querySelector(".select-to-play").classList.toggle("hidden")
 
     //SHOW NEXT SCREEN ELEMENTS
-    document.querySelector('.background').classList.toggle('vs-screen')
-    document.querySelector('.vs-screen-game').classList.toggle('active')
+    setTimeout(()=>{; 
+        document.querySelector('.background').classList.toggle('vs-screen')
+        document.querySelector('.vs-screen-game').classList.toggle('active')
+        
+        hitHit()
+        setTimeout(hitHit, 1000)
+        setTimeout(hitHit, 2000)
+      
+        setTimeout(()=>{
+            //SHOW SELECTED HANDS
+            document.querySelectorAll(".hand.enemy .wrapper *")[2].style.opacity =  0
+            document.querySelectorAll(".hand.player .wrapper *")[2].style.opacity =  0
+        
+            document.querySelectorAll(".hand.enemy .wrapper *").forEach(hand =>
+                {if(hand.classList.contains(comp)){
+                    hand.style.opacity =  1}})
+            document.querySelectorAll(".hand.player .wrapper *").forEach(hand =>
+                {if(hand.classList.contains(player)){
+                    hand.style.opacity =  1}})
+                }, 
+        2200);
+        setTimeout(()=>{
 
-    //SHOW SELECTED HANDS
-    document.querySelectorAll(".hand.enemy .wrapper *")[2].style.opacity =  0
-    document.querySelectorAll(".hand.player .wrapper *")[2].style.opacity =  0
 
-    document.querySelectorAll(".hand.enemy .wrapper *").forEach(hand =>
-        {if(hand.classList.contains(comp)){
-            hand.style.opacity =  1}})
-    document.querySelectorAll(".hand.player .wrapper *").forEach(hand =>
-        {if(hand.classList.contains(player)){
-            hand.style.opacity =  1}})
-    //SHOW WINNING/LOSING/ANIMATION
-    console.log(`
-    Computer: ${comp}
-    Player: ${player}
-    `)
-
-    const
-        vs_screen_hands = document.querySelectorAll(".vs-screen-game .hand"),
-        background = document.querySelector('.background.vs-screen ')
-
-
-    if(theWinneIs(player,comp) == "even"){
-        console.log("The game is even ")
-        background.style.filter=" blur(4px)"
-        vs_screen_hands.forEach(hand => {
-            hand.style.filter=" blur(4px)"
-        })
-
-    }else if(theWinneIs(player,comp) == "player"){
-        console.log("You won!")
-        vs_screen_hands[0].style.filter=" blur(4px)"
-    }else{
-        console.log("You lost!")  
-        vs_screen_hands[1].style.filter=" blur(4px)"
-    }
+        //SHOW WINNING/LOSING/ANIMATION
+    
+    
+        console.log(`
+        Computer: ${comp}
+        Player: ${player}
+        `)
+    
+        const
+            vs_screen_hands = document.querySelectorAll(".vs-screen-game .hand"),
+            background = document.querySelector('.background.vs-screen ')
+    
+    
+        if(theWinneIs(player,comp) == "even"){
+            console.log("The game is even ")
+            background.style.filter="brightness(0.8)  blur(4px)"
+            vs_screen_hands.forEach(hand => {
+                hand.style.filter="blur(4px)"
+                hand.style.opacity="0.6"
+            })
+    
+        }else if(theWinneIs(player,comp) == "player"){
+            console.log("You won!")
+            background.style.filter="brightness(0.8)"
+            background.style.top = "-100vh"
+            vs_screen_hands[0].style.filter=" blur(4px)"
+            vs_screen_hands[0].style.opacity="0.6"
+        }else{
+            console.log("You lost!")
+            background.style.top = "0vh"
+            background.style.filter="brightness(0.8)"  
+            vs_screen_hands[1].style.filter=" blur(4px)"
+            vs_screen_hands[1].style.opacity="0.6"
+        }
+        
+        }, 3450);
+    
+        
+    }, 1000)
     
 }
 
@@ -167,9 +192,23 @@ function numToHand(num){
             return "rock"
     }
 }
+function hitHit(){
+    setTimeout(()=>{document.querySelectorAll(".hand .wrapper *").forEach(hand =>{
+        hand.classList.toggle('hit')
+    })
+    }, 500)
+    setTimeout(()=>{document.querySelectorAll(".hand .wrapper *").forEach(hand =>{
+        hand.classList.toggle('hit')
+    })
+    }, 850)
+}
 
 //SELECT RANDOM HAND ON LOAD
-setTimeout(() =>menu_wheel.style.filter = "blur(0px)", 510);
+setTimeout(() =>{
+    menu_wheel.style.filter = "blur(0px)"
+    menu_wheel.style.opacity = "1"
+
+}, 150);
 
 
 if(Math.floor(Math.random() * 2) == 1){
@@ -196,7 +235,7 @@ menu_shapes.forEach(shape=>{
     shape.parentElement.classList.remove('active')})
 
 setTimeout(() =>{rotateWheel()
-    selectHand(selectedHand,true)}, 400);
+    selectHand(selectedHand,true)}, 200);
 
 
 

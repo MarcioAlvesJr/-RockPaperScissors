@@ -7,6 +7,7 @@
 
 body {
   overflow: hidden;
+  background-color: #2a9d8f;
 }
 
 .background {
@@ -18,8 +19,8 @@ body {
   left: -50;
   background-image: -webkit-gradient(linear, left top, left bottom, color-stop(50%, #f4a261), color-stop(50%, #2a9d8f));
   background-image: linear-gradient(#f4a261 50%, #2a9d8f 50%);
-  -webkit-transition: top 0.5s ease 1s;
-  transition: top 0.5s ease 1s;
+  -webkit-transition: 0.5s ease;
+  transition: 0.5s ease;
   z-index: -10;
 }
 
@@ -56,6 +57,7 @@ body {
   display: block;
   -webkit-filter: blur(50px);
           filter: blur(50px);
+  opacity: 0;
   -webkit-transition: 0.7s cubic-bezier(1, -0.26, 0, 1.66);
   transition: 0.7s cubic-bezier(1, -0.26, 0, 1.66);
 }
@@ -233,8 +235,8 @@ body {
   border-radius: 999999px;
   -webkit-transform: translateY(50vh);
           transform: translateY(50vh);
-  -webkit-transition: 0.5s ease 1s;
-  transition: 0.5s ease 1s;
+  -webkit-transition: 0.5s ease;
+  transition: 0.5s ease;
 }
 
 .vs-screen-game .hand {
@@ -254,6 +256,15 @@ body {
   position: absolute;
   height: 30vh;
   width: 30vh;
+  -webkit-transform: translateY(0vh);
+          transform: translateY(0vh);
+  -webkit-transition: 0.5s ease-in-out;
+  transition: 0.5s ease-in-out;
+}
+
+.vs-screen-game .hand img.hit {
+  -webkit-transform: translateY(-5vh);
+          transform: translateY(-5vh);
 }
 
 .vs-screen-game .wrapper {

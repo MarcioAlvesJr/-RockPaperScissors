@@ -5,7 +5,7 @@ $color-computer-1: #e9c46a;
 $color-computer-2: #f4a261;
 $color-computer-3: #e76f51;
 
-$change-screen: 0.5s ease 1s;
+$change-screen: 0.5s ease;
 
 * {
   padding: 0;
@@ -15,6 +15,7 @@ $change-screen: 0.5s ease 1s;
 
 body {
   overflow: hidden;
+  background-color: $color-player-2;
 }
 
 .background {
@@ -28,7 +29,7 @@ body {
 
   background-image: linear-gradient($color-computer-2 50%, $color-player-2 50%);
 
-  transition: top $change-screen;
+  transition: $change-screen;
   z-index: -10;
 }
 .background.vs-screen {
@@ -51,6 +52,7 @@ body {
   .hand-wheel {
     display: block;
     filter: blur(50px);
+    opacity: 0;
     transition: 0.7s cubic-bezier(1, -0.26, 0, 1.66);
 
     svg {
@@ -200,6 +202,13 @@ body {
       position: absolute;
       height: 30vh;
       width: 30vh;
+
+      transform: translateY(0vh);
+      transition: 0.5s ease-in-out;
+    }
+
+    img.hit {
+      transform: translateY(-5vh);
     }
   }
 
