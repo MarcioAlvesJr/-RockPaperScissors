@@ -200,17 +200,27 @@ body .wrapper.outside {
 }
 
 .select-to-play nav ul span {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.select-to-play nav ul span img {
   display: block;
+  margin: 1vh;
+  height: 10vh;
+  width: 10vh;
 }
 
-.select-to-play nav ul li:nth-child(1) span {
-  -webkit-transform: rotate(-70deg);
-          transform: rotate(-70deg);
-}
-
-.select-to-play nav ul li:nth-child(3) span {
-  -webkit-transform: rotate(70deg);
-          transform: rotate(70deg);
+.select-to-play nav ul .play-btn img {
+  height: 10vh;
+  margin: 1.5vh 0 0 2vh;
 }
 
 .select-to-play.hidden {
