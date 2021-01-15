@@ -54,8 +54,8 @@ body {
 
 .select-to-play .hand-wheel {
   display: block;
-  -webkit-transform: rotate(0deg);
-          transform: rotate(0deg);
+  -webkit-filter: blur(50px);
+          filter: blur(50px);
   -webkit-transition: 0.7s cubic-bezier(1, -0.26, 0, 1.66);
   transition: 0.7s cubic-bezier(1, -0.26, 0, 1.66);
 }

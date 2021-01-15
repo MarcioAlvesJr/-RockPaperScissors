@@ -50,7 +50,7 @@ body {
   justify-content: center;
   .hand-wheel {
     display: block;
-    transform: rotate(0deg);
+    filter: blur(50px);
     transition: 0.7s cubic-bezier(1, -0.26, 0, 1.66);
 
     svg {

@@ -2,17 +2,23 @@
 // 1 = Paper
 // 2 = Rock
 
+
 let
-    selectedHand = Math.floor(Math.random() * 3),
-    wheelRotation = 0;
+    wheelRotation = 0,
+    selectedHand = Math.floor(Math.random() * 3)
+
+
+
 
 //SELECTION MENU UI ELEMENTS
 const
     menu_shapes = document.querySelectorAll('.hand-wheel .back-shape path'),
     menu_hands = document.querySelectorAll(".hand-wheel .hand path"),
     menu_turns = document.querySelectorAll('.turn'),
-    menu_wheel = document.querySelector('.hand-wheel'),
+    menu_wheel = document.querySelector('.select-to-play .hand-wheel'),
     menu_playBtn = document.querySelector('.play-btn').addEventListener('click', startGame)
+
+
 
 // Menu Selection
     function selectHand(idx, first){
@@ -163,6 +169,20 @@ function numToHand(num){
 }
 
 //SELECT RANDOM HAND ON LOAD
+setTimeout(() =>menu_wheel.style.filter = "blur(0px)", 510);
+
+
+if(Math.floor(Math.random() * 2) == 1){
+    wheelRotation = 10000
+    }else{
+    wheelRotation = -10000
+    }
+
+rotateWheel()
+
+wheelRotation = 0
+
+
 
 if(selectedHand == 1){
     wheelRotation = wheelRotation -120
@@ -171,7 +191,12 @@ if(selectedHand == 1){
 }else{
     wheelRotation = wheelRotation +360
 }
-rotateWheel()
-selectHand(selectedHand,true)
+
+menu_shapes.forEach(shape=>{
+    shape.parentElement.classList.remove('active')})
+
+setTimeout(() =>{rotateWheel()
+    selectHand(selectedHand,true)}, 400);
+
 
 
