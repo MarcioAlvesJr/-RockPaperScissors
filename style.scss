@@ -16,6 +16,10 @@ $change-screen: 0.5s ease;
 body {
   overflow: hidden;
   background-color: $color-player-2;
+
+  * {
+    user-select: none;
+  }
 }
 
 .background {
@@ -31,10 +35,6 @@ body {
 
   transition: $change-screen;
   z-index: -10;
-}
-.background.vs-screen {
-  top: -50vh;
-  left: -50vh;
 }
 
 .select-to-play {
@@ -241,4 +241,42 @@ body {
       transform: translateY(0);
     }
   }
+}
+
+.reload {
+  width: 100vw;
+  height: 100vh;
+
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  transform: scale(0);
+  img {
+    transform: scale(0);
+    width: 10vh;
+    height: 10vh;
+    transition: 0.5s ease;
+    display: block;
+    z-index: 5;
+    cursor: pointer;
+  }
+}
+.reload.active {
+  transform: scale(1);
+  img {
+    transform: scale(1);
+  }
+}
+
+.reload img:hover {
+  filter: brightness(0.9);
+}
+
+.reload img:active {
+  transform: scale(0.4);
 }

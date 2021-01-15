@@ -16,7 +16,10 @@ const
     menu_hands = document.querySelectorAll(".hand-wheel .hand path"),
     menu_turns = document.querySelectorAll('.turn'),
     menu_wheel = document.querySelector('.select-to-play .hand-wheel'),
-    menu_playBtn = document.querySelector('.play-btn').addEventListener('click', startGame)
+    menu_playBtn = document.querySelector('.play-btn').addEventListener('click', startGame),
+    reload_btn = document.querySelector('.reload img').addEventListener('click', reloadPage),
+    background = document.querySelector('.background'),
+    vs_screen_hands = document.querySelectorAll(".vs-screen-game .hand")
 
 
 
@@ -78,7 +81,7 @@ function startGame(){
 
     //SHOW NEXT SCREEN ELEMENTS
     setTimeout(()=>{; 
-        document.querySelector('.background').classList.toggle('vs-screen')
+        document.querySelector('.background').style.top = "-50vh"
         document.querySelector('.vs-screen-game').classList.toggle('active')
         
         hitHit()
@@ -145,10 +148,7 @@ function startGame(){
         // Computer: ${comp}
         // Player: ${player}
         // `)
-    
-        const
-            vs_screen_hands = document.querySelectorAll(".vs-screen-game .hand"),
-            background = document.querySelector('.background.vs-screen ')
+
     
     
         if(theWinneIs(player,comp) == "even"){
@@ -169,7 +169,7 @@ function startGame(){
             vs_screen_hands[1].style.filter=" blur(4px)"
             vs_screen_hands[1].style.opacity="0.6"
         }
-        
+        document.querySelector(".reload").classList.toggle('active')
         }, 2950);
     
         
@@ -237,39 +237,62 @@ function hitHit(){
     }, 850)
 }
 
-//SELECT RANDOM HAND ON LOAD
-setTimeout(() =>{
-    menu_wheel.style.filter = "blur(0px)"
-    menu_wheel.style.opacity = "1"
+function reloadPage(){
+    document.querySelector(".select-to-play").classList.toggle("hidden")
+    document.querySelector('.vs-screen-game').classList.toggle('active')
+    document.querySelector(".reload").classList.toggle('active')
+    background.style.filter="brightness(1)  blur(0)"
+    background.style.top = "-100vh"
+    document.querySelectorAll(".hand .wrapper *").forEach(hand =>
+    hand.style.opacity =  0)
+    vs_screen_hands.forEach(hand => {
+        hand.style.filter=" blur(0px)"
+        hand.style.opacity="1"
+    })
+    document.querySelectorAll(".hand.enemy .wrapper *")[2].style.opacity =  1
+    document.querySelectorAll(".hand.player .wrapper *")[2].style.opacity =  1
 
-}, 150);
-
-
-if(Math.floor(Math.random() * 2) == 1){
-    wheelRotation = 10000
-    }else{
-    wheelRotation = -10000
-    }
-
-rotateWheel()
-
-wheelRotation = 0
-
-
-
-if(selectedHand == 1){
-    wheelRotation = wheelRotation -120
-}else if(selectedHand == 2){
-    wheelRotation = wheelRotation +120
-}else{
-    wheelRotation = wheelRotation +360
+    selectRandom()
 }
 
-menu_shapes.forEach(shape=>{
-    shape.parentElement.classList.remove('active')})
+//SELECT RANDOM HAND ON LOAD
+selectRandom()
+function selectRandom(){
+    selectedHand = Math.floor(Math.random() * 3)
+    setTimeout(() =>{
+        menu_wheel.style.filter = "blur(0px)"
+        menu_wheel.style.opacity = "1"
+    
+    }, 150);
+    
+    
+    if(Math.floor(Math.random() * 2) == 1){
+        wheelRotation = 10000
+        }else{
+        wheelRotation = -10000
+        }
+    
+    rotateWheel()
+    
+    wheelRotation = 0
+    
+    
+    
+    if(selectedHand == 1){
+        wheelRotation = wheelRotation -120
+    }else if(selectedHand == 2){
+        wheelRotation = wheelRotation +120
+    }else{
+        wheelRotation = wheelRotation +360
+    }
+    
+    menu_shapes.forEach(shape=>{
+        shape.parentElement.classList.remove('active')})
+    
+    setTimeout(() =>{rotateWheel()
+        selectHand(selectedHand,true)}, 200);
+}
 
-setTimeout(() =>{rotateWheel()
-    selectHand(selectedHand,true)}, 200);
 
 
 

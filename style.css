@@ -10,6 +10,13 @@ body {
   background-color: #2a9d8f;
 }
 
+body * {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
 .background {
   display: block;
   height: 200vh;
@@ -22,11 +29,6 @@ body {
   -webkit-transition: 0.5s ease;
   transition: 0.5s ease;
   z-index: -10;
-}
-
-.background.vs-screen {
-  top: -50vh;
-  left: -50vh;
 }
 
 .select-to-play {
@@ -297,5 +299,56 @@ body {
   background-color: #8ab17d;
   -webkit-transform: translateY(0);
           transform: translateY(0);
+}
+
+.reload {
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-transform: scale(0);
+          transform: scale(0);
+}
+
+.reload img {
+  -webkit-transform: scale(0);
+          transform: scale(0);
+  width: 10vh;
+  height: 10vh;
+  -webkit-transition: 0.5s ease;
+  transition: 0.5s ease;
+  display: block;
+  z-index: 5;
+  cursor: pointer;
+}
+
+.reload.active {
+  -webkit-transform: scale(1);
+          transform: scale(1);
+}
+
+.reload.active img {
+  -webkit-transform: scale(1);
+          transform: scale(1);
+}
+
+.reload img:hover {
+  -webkit-filter: brightness(0.9);
+          filter: brightness(0.9);
+}
+
+.reload img:active {
+  -webkit-transform: scale(0.4);
+          transform: scale(0.4);
 }
 /*# sourceMappingURL=style.css.map */
