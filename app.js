@@ -238,9 +238,9 @@ function hitHit(){
 }
 
 function reloadPage(){
+    document.querySelector(".reload").classList.toggle('active')
     document.querySelector(".select-to-play").classList.toggle("hidden")
     document.querySelector('.vs-screen-game').classList.toggle('active')
-    document.querySelector(".reload").classList.toggle('active')
     background.style.filter="brightness(1)  blur(0)"
     background.style.top = "-100vh"
     document.querySelectorAll(".hand .wrapper *").forEach(hand =>
