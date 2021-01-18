@@ -1,1 +1,2 @@
-# RockPaperScissors
+# RockPaperScissors - Game Project
+
